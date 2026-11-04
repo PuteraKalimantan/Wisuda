@@ -218,17 +218,18 @@ const animationTimeline = () => {
         stagger: 0.05
     })
 
-    .to(".fake-btn", {
-        duration: 0.1,
-        backgroundColor: "rgb(127, 206, 248)"
-    }, "+=4")
+    
+.to(".fake-btn", {
+    duration: 0.1,
+    backgroundColor: "rgb(127, 206, 248)"
+}, "+=1")
 
-    .to(".four", {
-        duration: 0.5,
-        scale: 0.2,
-        opacity: 0,
-        y: -150
-    }, "+=1")
+.to(".four", {
+    duration: 0.5,
+    scale: 0.2,
+    opacity: 0,
+    y: -150
+}, "+=0.3")
 
 
     // =====================================
