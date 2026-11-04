@@ -413,12 +413,14 @@ const animationTimeline = () => {
     }, "party")
 
     // TUNGGU JUDUL SELESAI, BARU TAMPILKAN UCAPAN
+   
     .from(".wish h5", {
-        duration: 1,
+        duration: 0.5,
         opacity: 0,
-        y: 25,
-        ease: "power2.out"
-    }, ">+=0.5")
+        y: 10,
+        skewX: "-15deg"
+    }, "party")
+
 
 
 
