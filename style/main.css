@@ -526,3 +526,16 @@ body {
         font-size: .9rem;
     }
 }
+/* =========================================
+   FINAL FIX - REMOVE PURPLE BACKGROUND
+========================================= */
+
+.container > div.six {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.container > div.six::before,
+.container > div.six::after {
+    background: transparent !important;
+}
