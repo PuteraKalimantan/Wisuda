@@ -219,17 +219,20 @@ const animationTimeline = () => {
     })
 
     
-.to(".fake-btn", {
-    duration: 0.1,
-    backgroundColor: "rgb(127, 206, 248)"
-}, "+=1")
 
-.to(".four", {
-    duration: 0.5,
-    scale: 0.2,
-    opacity: 0,
-    y: -150
-}, "+=0.3")
+    // Setelah pesan selesai, tunggu 0,3 detik
+    .to(".fake-btn", {
+        duration: 0.1,
+        backgroundColor: "rgb(127, 206, 248)"
+    }, "+=0.3")
+
+    // Kotak pesan langsung mengecil dan menghilang
+    .to(".four", {
+        duration: 0.4,
+        scale: 0.2,
+        opacity: 0,
+        y: -150
+    }, ">")
 
 
     // =====================================
