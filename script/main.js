@@ -378,12 +378,14 @@ const animationTimeline = () => {
     })
 
 
+ 
     // =====================================
     // BAGIAN 8 - UCAPAN WISUDA
     // =====================================
 
     .addLabel("party")
 
+    // ANIMASI JUDUL WISUDA
     .from(".wish-hbd span", {
         duration: 0.7,
         opacity: 0,
@@ -406,12 +408,14 @@ const animationTimeline = () => {
         stagger: 0.1
     }, "party")
 
+    // TUNGGU JUDUL SELESAI, BARU TAMPILKAN UCAPAN
     .from(".wish h5", {
-        duration: 0.5,
+        duration: 1,
         opacity: 0,
-        y: 10,
-        skewX: "-15deg"
-    }, "party")
+        y: 25,
+        ease: "power2.out"
+    }, ">+=0.5")
+
 
 
     // =====================================
