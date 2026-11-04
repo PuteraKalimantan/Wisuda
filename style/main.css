@@ -144,13 +144,15 @@ body {
     min-height: 100vh;
     min-height: 100svh;
     padding: 30vh 10px 20px;
-    background-color: #d9cff2;
+
+    /* Menghilangkan kotak ungu */
+    background-color: transparent;
+
     text-align: center;
     visibility: hidden;
     opacity: 0;
     z-index: 1;
 }
-
 .six .profile-picture {
     display: inline-block;
     width: 27%;
