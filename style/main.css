@@ -1,7 +1,6 @@
-
 /* =========================================
-   HAPPY GRADUATION - MAIN CSS
-   RESPONSIVE DESKTOP, TABLET & SMARTPHONE
+   HAPPY GRADUATION - FINAL CSS
+   Responsive Desktop, Tablet & Smartphone
 ========================================= */
 
 html {
@@ -10,9 +9,7 @@ html {
     overflow-x: hidden;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
@@ -28,33 +25,29 @@ body {
     visibility: hidden;
 }
 
-/* =========================================
-   CONTAINER UTAMA
-========================================= */
+/* CONTAINER UTAMA */
 
 .container {
     height: 100vh;
     height: 100svh;
     min-height: 500px;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
     text-align: center;
     visibility: hidden;
-    width: 100%;
-    max-width: 100%;
 }
 
-.container > div {
-    left: 0;
+.container > div:not(.seven):not(.eight) {
     position: absolute;
+    left: 0;
     right: 0;
     top: 20vh;
 }
 
-/* =========================================
-   BAGIAN 1 - PEMBUKAAN
-========================================= */
+/* PEMBUKAAN */
 
 .one {
     font-size: clamp(2rem, 5vw, 4.5rem);
@@ -63,7 +56,7 @@ body {
 
 .two {
     font-size: clamp(1rem, 2vw, 1.2rem);
-    font-weight: lighter;
+    font-weight: 300;
     line-height: 1.5;
 }
 
@@ -71,9 +64,7 @@ body {
     font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
-/* =========================================
-   BAGIAN 2 - KOTAK UCAPAN
-========================================= */
+/* KOTAK UCAPAN */
 
 .four .text-box {
     border: 3px solid #aaa;
@@ -82,7 +73,6 @@ body {
     padding: 15px;
     position: relative;
     width: min(90%, 600px);
-    max-width: 100%;
 }
 
 .text-box p {
@@ -105,9 +95,12 @@ body {
     right: 5px;
 }
 
-/* =========================================
-   BAGIAN 3 - ANIMASI TEKS
-========================================= */
+.hbd-chatbox {
+    white-space: pre-wrap;
+    line-height: 1.7;
+}
+
+/* ANIMASI TEKS */
 
 .five p {
     font-size: clamp(1.2rem, 3vw, 2rem);
@@ -139,39 +132,68 @@ body {
     font-size: clamp(7rem, 15vw, 15rem);
 }
 
-/* =========================================
-   BAGIAN 4 - FOTO WISUDA
-========================================= */
+/* FOTO WISUDA */
 
-.six {
-    position: relative;
-    top: 10vh;
-    z-index: 1;
+.container > div.six {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    max-width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 30vh 10px 20px;
+    background-color: #d9cff2;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
 }
 
 .six .profile-picture {
     display: inline-block;
-    height: 350px;
-    max-width: 30%;
-    width: auto;
-    object-fit: contain;
+    width: 27%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
     vertical-align: middle;
+    border-radius: 8px;
 }
 
 .six .hat {
-    left: 41.5%;
     position: absolute;
-    top: -35%;
-    width: 80px;
-    max-width: none;
+    width: 65px;
     height: auto;
+    left: 50%;
+    top: 12vh;
+    transform: translateX(-50%);
 }
 
-/* =========================================
-   BAGIAN 5 - BALON
-========================================= */
+.six .wish {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    padding: 0 10px;
+}
+
+.wish-hbd {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.wish h5 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    font-weight: 300;
+    margin: 10px 0 0;
+    line-height: 1.5;
+}
+
+/* BALON */
 
 .baloons img {
     display: inline-block;
@@ -188,9 +210,11 @@ body {
     right: -10%;
 }
 
-.baloons img:nth-child(3n + 0) {
+.baloons img:nth-child(3n) {
     left: 30%;
 }
+
+/* LINGKARAN */
 
 .seven,
 .eight {
@@ -202,10 +226,6 @@ body {
     overflow: hidden;
     pointer-events: none;
 }
-
-/* =========================================
-   BAGIAN 6 - ANIMASI LINGKARAN
-========================================= */
 
 .eight svg {
     left: 0;
@@ -270,37 +290,11 @@ body {
     top: 94vh;
 }
 
-/* =========================================
-   BAGIAN 7 - UCAPAN WISUDA
-========================================= */
-
-.wish {
-    max-width: 100%;
-    padding: 0 10px;
-}
-
-.wish-hbd {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin: 0;
-    text-transform: uppercase;
-    line-height: 1.3;
-    overflow-wrap: break-word;
-}
-
-.wish h5 {
-    font-size: clamp(1rem, 2.5vw, 2rem);
-    font-weight: lighter;
-    margin: 10px 0 0;
-    line-height: 1.5;
-}
-
-/* =========================================
-   BAGIAN 8 - PENUTUP
-========================================= */
+/* PENUTUP */
 
 .nine p {
     font-size: clamp(1.2rem, 3vw, 2rem);
-    font-weight: lighter;
+    font-weight: 300;
     line-height: 1.5;
     padding: 0 15px;
 }
@@ -310,31 +304,12 @@ body {
     z-index: 3;
 }
 
-/* =========================================
-   TABLET
-========================================= */
+/* TABLET */
 
 @media screen and (max-width: 768px) {
 
-    .container {
-        width: 100%;
-        min-height: 100svh;
-    }
-
-    .container > div {
+    .container > div:not(.seven):not(.eight) {
         top: 15vh;
-    }
-
-    .one {
-        font-size: clamp(2rem, 6vw, 3rem);
-    }
-
-    .two {
-        font-size: 1rem;
-    }
-
-    .three {
-        font-size: 2rem;
     }
 
     .four .text-box {
@@ -347,74 +322,33 @@ body {
         line-height: 1.6;
     }
 
-    .text-box .fake-btn {
-        bottom: -40px;
-    }
-
     .five p {
         font-size: 1.4rem;
-        padding: 0 15px;
-    }
-
-    .five .idea-5 {
-        font-size: 2.8rem;
-    }
-
-    .idea-6 span {
-        font-size: 10rem;
-    }
-
-    .six {
-        top: 8vh;
     }
 
     .six .profile-picture {
-        height: 260px;
-        max-width: 30%;
+        width: 29%;
+        max-width: 220px;
     }
 
     .six .hat {
-        width: 65px;
-        left: 40%;
-    }
-
-    .wish-hbd {
-        font-size: 2.3rem;
-    }
-
-    .wish h5 {
-        font-size: 1.2rem;
-    }
-
-    .nine p {
-        font-size: 1.3rem;
+        width: 55px;
     }
 }
 
-/* =========================================
-   SMARTPHONE
-========================================= */
+/* SMARTPHONE */
 
 @media screen and (max-width: 500px) {
-
-    html,
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
 
     .container {
         width: 100%;
         height: 100svh;
         min-height: 500px;
-        overflow: hidden;
     }
 
-    .container > div {
+    .container > div:not(.seven):not(.eight) {
         top: 15vh;
     }
-
-    /* Pembukaan */
 
     .one {
         font-size: 2rem;
@@ -429,7 +363,7 @@ body {
     }
 
     .two {
-        font-size: 0.9rem;
+        font-size: .9rem;
         padding: 0 10px;
     }
 
@@ -438,11 +372,8 @@ body {
         padding: 0 10px;
     }
 
-    /* Kotak ucapan */
-
     .four .text-box {
         width: 92%;
-        max-width: 100%;
         padding: 10px;
         border-width: 2px;
     }
@@ -454,12 +385,9 @@ body {
 
     .text-box .fake-btn {
         bottom: -38px;
-        right: 5px;
         font-size: 12px;
         padding: 7px 14px;
     }
-
-    /* Animasi teks */
 
     .five p {
         font-size: clamp(1rem, 4vw, 1.3rem);
@@ -479,64 +407,42 @@ body {
         font-size: 7rem;
     }
 
-    /* Foto wisuda */
-
-    .six {
-        top: 8vh;
-        width: 100%;
-        padding: 0 5px;
+    .container > div.six {
+        padding: 30vh 5px 15px;
     }
 
     .six .profile-picture {
-        height: clamp(140px, 25vh, 200px);
-        max-width: 30%;
-        width: auto;
-        object-fit: contain;
+        width: 29%;
+        max-width: 120px;
+        aspect-ratio: 3 / 4;
     }
 
     .six .hat {
         width: 48px;
-        left: 38%;
-        top: -25%;
+        top: 12vh;
     }
 
-    /* Ucapan wisuda */
-
-    .wish {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 8px;
+    .six .wish {
+        margin-top: 20px;
+        padding: 0 5px;
     }
 
     .wish-hbd {
         font-size: clamp(1.4rem, 6vw, 2rem);
-        line-height: 1.4;
     }
 
     .wish h5 {
-        font-size: 0.95rem;
+        font-size: .95rem;
         line-height: 1.6;
     }
-
-    /* Balon */
-
-    .baloons img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Penutup */
 
     .nine p {
         font-size: 1rem;
         line-height: 1.6;
-        padding: 0 15px;
     }
 }
 
-/* =========================================
-   SMARTPHONE KECIL
-========================================= */
+/* SMARTPHONE KECIL */
 
 @media screen and (max-width: 360px) {
 
@@ -552,17 +458,12 @@ body {
         font-size: 1.3rem;
     }
 
-    .four .text-box {
-        width: 94%;
-        padding: 8px;
-    }
-
     .text-box p {
         font-size: 12px;
     }
 
     .five p {
-        font-size: 0.95rem;
+        font-size: .95rem;
     }
 
     .five .idea-5 {
@@ -574,8 +475,7 @@ body {
     }
 
     .six .profile-picture {
-        height: 150px;
-        max-width: 30%;
+        width: 28%;
     }
 
     .six .hat {
@@ -587,30 +487,29 @@ body {
     }
 
     .wish h5 {
-        font-size: 0.85rem;
+        font-size: .85rem;
     }
 
     .nine p {
-        font-size: 0.9rem;
+        font-size: .9rem;
     }
 }
 
-/* =========================================
-   SMARTPHONE LANDSCAPE
-========================================= */
+/* SMARTPHONE LANDSCAPE */
 
 @media screen and (max-height: 500px) and (max-width: 900px) {
 
-    .container > div {
+    .container > div:not(.seven):not(.eight) {
         top: 8vh;
     }
 
-    .six {
-        top: 3vh;
+    .container > div.six {
+        padding-top: 20vh;
     }
 
     .six .profile-picture {
-        height: 120px;
+        max-height: 120px;
+        width: auto;
     }
 
     .six .hat {
@@ -622,160 +521,6 @@ body {
     }
 
     .wish h5 {
-        font-size: 0.9rem;
-    }
-}
-
-/* =========================================
-   PERBAIKAN TEKS UCAPAN
-========================================= */
-
-.four .text-box {
-    box-sizing: border-box;
-    width: min(600px, 90%);
-    max-width: 100%;
-}
-
-.hbd-chatbox {
-    white-space: pre-wrap;
-    word-break: normal;
-    overflow-wrap: normal;
-    text-align: left;
-    line-height: 1.7;
-    letter-spacing: normal;
-}
-
-.hbd-chatbox span {
-    white-space: pre-wrap;
-    display: inline;
-}
-
-
-/* =========================================
-   PERBAIKAN AREA FOTO WISUDA
-========================================= */
-
-.container > div.six {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100svh;
-    box-sizing: border-box;
-
-    /* Warna latar lavender */
-    background-color: #d9cff2;
-
-    /* Memberikan ruang untuk topi dan foto */
-    padding-top: 30vh;
-}
-
-
-/* =========================================
-   FOTO RESPONSIVE
-========================================= */
-
-.six .profile-picture {
-    display: inline-block;
-    width: 30%;
-    max-width: 350px;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    vertical-align: top;
-}
-
-.six .hat {
-    left: 50%;
-    top: 12vh;
-    transform: translateX(-50%);
-    width: 65px;
-}
-
-
-/* =========================================
-   TAMPILAN SMARTPHONE
-========================================= */
-
-@media screen and (max-width: 500px) {
-
-    .container {
-        width: 100%;
-        min-height: 100vh;
-        min-height: 100svh;
-    }
-
-    .four .text-box {
-        width: 90%;
-        padding: 14px;
-    }
-
-    .hbd-chatbox {
-        font-size: 1rem;
-        line-height: 1.8;
-        text-align: left;
-        overflow-wrap: normal;
-        word-break: normal;
-    }
-
-    .text-box .fake-btn {
-        bottom: -45px;
-        right: 5px;
-    }
-
-    .container > div.six {
-        top: 0;
-        padding-top: 30vh;
-        min-height: 100vh;
-        min-height: 100svh;
-    }
-
-    .six .profile-picture {
-        width: 30%;
-        height: auto;
-        aspect-ratio: 3 / 4;
-        object-fit: cover;
-    }
-
-    .six .hat {
-        width: 55px;
-        left: 50%;
-        top: 12vh;
-    }
-
-    .wish-hbd {
-        font-size: clamp(1.5rem, 6vw, 2.2rem);
-        line-height: 1.3;
-    }
-
-    .wish h5 {
-        font-size: clamp(1rem, 4vw, 1.4rem);
-        line-height: 1.6;
-        padding: 0 12px;
-    }
-}
-
-
-/* =========================================
-   SMARTPHONE LAYAR KECIL
-========================================= */
-
-@media screen and (max-width: 360px) {
-
-    .hbd-chatbox {
-        font-size: 0.9rem;
-    }
-
-    .six .profile-picture {
-        width: 29%;
-    }
-
-    .wish-hbd {
-        font-size: 1.5rem;
-    }
-
-    .wish h5 {
-        font-size: 1rem;
+        font-size: .9rem;
     }
 }
