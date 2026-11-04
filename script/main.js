@@ -3,25 +3,33 @@
 // FINAL ANIMATION - GSAP 3
 // =========================================
 
+
+// =========================================
+// HAPPY GRADUATION
+// MUSIC CHOICE BEFORE ANIMATION
+// =========================================
+
 window.addEventListener("load", async () => {
 
     const container = document.querySelector(".container");
     const audio = document.querySelector(".song");
 
-    // Pastikan library tersedia
+    // Pastikan GSAP tersedia
     if (typeof gsap === "undefined") {
         console.error("GSAP gagal dimuat.");
-        if (container) container.style.visibility = "visible";
         return;
     }
 
-    // Jalankan animasi terlebih dahulu
-    animationTimeline();
+    // Pastikan container tetap tersembunyi
+    if (container) {
+        container.style.visibility = "hidden";
+    }
 
-    // Popup musik
-    if (typeof Swal !== "undefined" && audio) {
+    // Tampilkan popup pilihan musik
+    if (typeof Swal !== "undefined") {
 
         try {
+
             const result = await Swal.fire({
                 title: "Do you want to play music in the background?",
                 icon: "warning",
@@ -29,26 +37,57 @@ window.addEventListener("load", async () => {
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Yes",
-                cancelButtonText: "No"
+                cancelButtonText: "No",
+
+                // Pengguna wajib menentukan pilihan
+                allowOutsideClick: false,
+                allowEscapeKey: false
             });
 
-            if (result.isConfirmed) {
+            // Jika memilih Yes, putar musik
+            if (result.isConfirmed && audio) {
+
                 try {
                     await audio.play();
+
                 } catch (error) {
                     console.error("Musik gagal diputar:", error);
                 }
+
             }
 
+            // ANIMASI BARU DIMULAI SETELAH PILIHAN
+            animationTimeline();
+
         } catch (error) {
+
             console.error("SweetAlert error:", error);
+
+            // Jangan jalankan animasi jika popup gagal.
         }
 
     } else {
-        console.warn("SweetAlert atau audio tidak tersedia.");
+
+        // Fallback jika SweetAlert tidak tersedia
+        const playMusic = window.confirm(
+            "Do you want to play music in the background?"
+        );
+
+        if (playMusic && audio) {
+            try {
+                await audio.play();
+            } catch (error) {
+                console.error("Musik gagal diputar:", error);
+            }
+        }
+
+        // Mulai animasi setelah pengguna memilih
+        animationTimeline();
+
     }
 
 });
+
 
 
 // =========================================
