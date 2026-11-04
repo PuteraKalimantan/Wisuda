@@ -1,6 +1,12 @@
+
 /* =========================================
-   HAPPY GRADUATION - FINAL CSS
-   Responsive Desktop, Tablet & Smartphone
+   HAPPY GRADUATION
+   FINAL CSS - CLEAN & RESPONSIVE
+   Desktop, Tablet & Smartphone
+========================================= */
+
+/* =========================================
+   1. GLOBAL
 ========================================= */
 
 html {
@@ -19,13 +25,16 @@ body {
     padding: 0;
     width: 100%;
     overflow-x: hidden;
+    background: #fff;
 }
 
 .song {
     visibility: hidden;
 }
 
-/* CONTAINER UTAMA */
+/* =========================================
+   2. MAIN CONTAINER
+========================================= */
 
 .container {
     height: 100vh;
@@ -38,6 +47,7 @@ body {
     position: relative;
     text-align: center;
     visibility: hidden;
+    background: #fff;
 }
 
 .container > div:not(.seven):not(.eight) {
@@ -47,7 +57,9 @@ body {
     top: 20vh;
 }
 
-/* PEMBUKAAN */
+/* =========================================
+   3. OPENING TEXT
+========================================= */
 
 .one {
     font-size: clamp(2rem, 5vw, 4.5rem);
@@ -64,7 +76,9 @@ body {
     font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
-/* KOTAK UCAPAN */
+/* =========================================
+   4. MESSAGE BOX
+========================================= */
 
 .four .text-box {
     border: 3px solid #aaa;
@@ -100,7 +114,9 @@ body {
     line-height: 1.7;
 }
 
-/* ANIMASI TEKS */
+/* =========================================
+   5. TEXT ANIMATIONS
+========================================= */
 
 .five p {
     font-size: clamp(1.2rem, 3vw, 2rem);
@@ -132,84 +148,168 @@ body {
     font-size: clamp(7rem, 15vw, 15rem);
 }
 
-/* FOTO WISUDA */
+/* =========================================
+   6. GRADUATION SECTION
+========================================= */
 
 .container > div.six {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: 0;
     right: 0;
+
     width: 100%;
     height: 100%;
     min-height: 100vh;
     min-height: 100svh;
-    padding: 12vh 5px 15px !important;
 
-    /* Menghilangkan kotak ungu */
-    background-color: transparent;
+    padding: 7vh 10px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: transparent !important;
 
     text-align: center;
     visibility: hidden;
     opacity: 0;
     z-index: 1;
 }
+
+/* =========================================
+   7. GRADUATION HAT
+========================================= */
+
+.six .hat {
+    position: relative !important;
+
+    display: block;
+    width: 48px;
+    height: auto;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    transform: none;
+
+    margin: 0 auto 12px;
+    z-index: 5;
+}
+
+/* =========================================
+   8. PHOTO WRAPPER
+========================================= */
+
+.six .photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+    width: 100%;
+    max-width: 650px;
+}
+
+/* GRADUATION PHOTOS */
+
 .six .profile-picture {
-    display: inline-block;
-    width: 27%;
-    max-width: 300px;
+    display: block;
+
+    width: calc(33.333% - 6px);
+    max-width: 220px;
+
     height: auto;
     aspect-ratio: 3 / 4;
+
     object-fit: cover;
     vertical-align: middle;
+
     border-radius: 8px;
 }
 
-.six .hat {
-    position: absolute;
-    width: 65px;
-    height: auto;
-    left: 50%;
-    top: 3vh;
-    transform: translateX(-50%);
-}
+/* =========================================
+   9. WISH SECTION
+========================================= */
 
-
-/* FIX POSISI JUDUL AGAR BENAR-BENAR CENTER */
-
-.six .wish {
-    width: 100% !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 0 !important;
-}
-
-.six .wish-hbd {
-    display: block !important;
-    width: 100% !important;
+.container .six .wish {
     position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    left: auto !important;
+    right: auto !important;
+
+    transform: none !important;
+
+    margin: 25px auto 0 !important;
+    padding: 0 5px !important;
+
+    text-align: center !important;
+}
+
+/* GRADUATION TITLE */
+
+.container .six .wish h3.wish-hbd {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
     margin: 0 auto !important;
     padding: 0 !important;
+
+    left: auto !important;
+    right: auto !important;
+
     text-align: center !important;
-    transform: none;
+    text-indent: 0 !important;
+
     white-space: nowrap !important;
+    overflow: visible !important;
+
+    font-size: clamp(13px, 4.2vw, 26px);
+    line-height: 1.3;
+    letter-spacing: 0;
+
+    text-transform: uppercase;
 }
 
-.six .wish h5 {
-    width: 100%;
+/* INDIVIDUAL ANIMATED CHARACTERS */
+
+.container .six .wish h3.wish-hbd span {
+    display: inline-block !important;
+    float: none !important;
+}
+
+/* SECOND MESSAGE */
+
+.container .six .wish h5 {
+    display: block !important;
+
+    position: relative !important;
+
+    width: 100% !important;
+
+    margin: 15px auto 0 !important;
+    padding: 0 5px !important;
+
+    font-size: clamp(13px, 2.5vw, 18px);
+    font-weight: 300;
+
+    line-height: 1.6;
     text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
 }
 
-
-/* BALON */
+/* =========================================
+   10. BALLOONS
+========================================= */
 
 .baloons img {
     display: inline-block;
@@ -230,7 +330,9 @@ body {
     left: 30%;
 }
 
-/* LINGKARAN */
+/* =========================================
+   11. CIRCLES
+========================================= */
 
 .seven,
 .eight {
@@ -306,7 +408,9 @@ body {
     top: 94vh;
 }
 
-/* PENUTUP */
+/* =========================================
+   12. CLOSING SECTION
+========================================= */
 
 .nine p {
     font-size: clamp(1.2rem, 3vw, 2rem);
@@ -320,7 +424,9 @@ body {
     z-index: 3;
 }
 
-/* TABLET */
+/* =========================================
+   13. TABLET RESPONSIVE
+========================================= */
 
 @media screen and (max-width: 768px) {
 
@@ -343,16 +449,17 @@ body {
     }
 
     .six .profile-picture {
-        width: 29%;
         max-width: 220px;
     }
 
     .six .hat {
-        width: 55px;
+        width: 45px;
     }
 }
 
-/* SMARTPHONE */
+/* =========================================
+   14. SMARTPHONE RESPONSIVE
+========================================= */
 
 @media screen and (max-width: 500px) {
 
@@ -423,31 +530,42 @@ body {
         font-size: 7rem;
     }
 
-    .container > div.six {
-        padding: 30vh 5px 15px;
-    }
+    /* GRADUATION AREA */
 
-    .six .profile-picture {
-        width: 29%;
-        max-width: 120px;
-        aspect-ratio: 3 / 4;
+    .container > div.six {
+        padding: 6vh 5px 15px !important;
     }
 
     .six .hat {
-        width: 48px;
-        top: 12vh;
+        width: 45px;
+        margin-bottom: 12px;
     }
 
-    .six .wish {
-        margin-top: 20px;
-        padding: 0 5px;
+    /* PHOTOS */
+
+    .six .photos {
+        width: 94%;
+        gap: 7px;
     }
 
-    .wish-hbd {
-        font-size: clamp(1.4rem, 6vw, 2rem);
+    .six .profile-picture {
+        width: calc(33.333% - 5px);
+        max-width: none;
+        aspect-ratio: 3 / 4;
     }
 
-    .wish h5 {
+    /* WISH */
+
+    .container .six .wish {
+        margin-top: 25px !important;
+        padding: 0 5px !important;
+    }
+
+    .container .six .wish h3.wish-hbd {
+        font-size: clamp(14px, 4.2vw, 22px);
+    }
+
+    .container .six .wish h5 {
         font-size: .95rem;
         line-height: 1.6;
     }
@@ -458,7 +576,9 @@ body {
     }
 }
 
-/* SMARTPHONE KECIL */
+/* =========================================
+   15. SMALL SMARTPHONE
+========================================= */
 
 @media screen and (max-width: 360px) {
 
@@ -490,19 +610,28 @@ body {
         font-size: 5.5rem;
     }
 
-    .six .profile-picture {
-        width: 28%;
+    .container > div.six {
+        padding-top: 5vh !important;
     }
 
     .six .hat {
         width: 40px;
     }
 
-    .wish-hbd {
-        font-size: 1.4rem;
+    .six .photos {
+        width: 96%;
+        gap: 5px;
     }
 
-    .wish h5 {
+    .six .profile-picture {
+        width: calc(33.333% - 4px);
+    }
+
+    .container .six .wish h3.wish-hbd {
+        font-size: 13px;
+    }
+
+    .container .six .wish h5 {
         font-size: .85rem;
     }
 
@@ -511,7 +640,9 @@ body {
     }
 }
 
-/* SMARTPHONE LANDSCAPE */
+/* =========================================
+   16. SMARTPHONE LANDSCAPE
+========================================= */
 
 @media screen and (max-height: 500px) and (max-width: 900px) {
 
@@ -520,7 +651,16 @@ body {
     }
 
     .container > div.six {
-        padding-top: 20vh;
+        padding-top: 5vh !important;
+    }
+
+    .six .hat {
+        width: 35px;
+        margin-bottom: 8px;
+    }
+
+    .six .photos {
+        max-height: 120px;
     }
 
     .six .profile-picture {
@@ -528,194 +668,16 @@ body {
         width: auto;
     }
 
-    .six .hat {
-        width: 35px;
+    .container .six .wish {
+        margin-top: 12px !important;
     }
 
-    .wish-hbd {
-        font-size: 1.5rem;
+    .container .six .wish h3.wish-hbd {
+        font-size: 1.2rem;
     }
 
-    .wish h5 {
-        font-size: .9rem;
+    .container .six .wish h5 {
+        font-size: .85rem;
+        margin-top: 8px !important;
     }
 }
-/* =========================================
-   FINAL FIX - REMOVE PURPLE BACKGROUND
-========================================= */
-
-.container > div.six {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-.container > div.six::before,
-.container > div.six::after {
-    background: transparent !important;
-}
-
-
-/* =========================================
-   HAPPY GRADUATION - FINAL LAYOUT FIX
-========================================= */
-
-/* BACKGROUND */
-html,
-body,
-.container {
-    background: #fff !important;
-}
-
-/* AREA WISUDA */
-.container > div.six {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    width: 100%;
-    height: 100%;
-    min-height: 100svh;
-
-    padding: 7vh 10px 20px !important;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background: transparent !important;
-    text-align: center;
-}
-
-/* TOPI WISUDA */
-.six .hat {
-    position: relative !important;
-
-    display: block;
-    width: 48px !important;
-    height: auto;
-
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-
-    transform: none !important;
-
-    margin: 0 auto 12px;
-    z-index: 5;
-}
-
-/* WRAPPER FOTO */
-.six .photos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 8px;
-    width: 100%;
-    max-width: 650px;
-}
-
-/* FOTO */
-.six .profile-picture {
-    display: block;
-
-    width: calc(33.333% - 6px);
-    max-width: 220px;
-
-    height: auto;
-    aspect-ratio: 3 / 4;
-
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* UCAPAN */
-.six .wish {
-    position: relative;
-    width: 100%;
-
-    margin-top: 28px !important;
-    padding: 0 5px;
-}
-
-/* JUDUL SATU BARIS */
-.six .wish-hbd {
-    display: block;
-    width: 100%;
-
-    white-space: nowrap !important;
-    overflow: visible;
-
-    font-size: clamp(15px, 4.2vw, 30px) !important;
-    line-height: 1.3;
-
-    margin: 0;
-    padding: 0;
-
-    text-align: center;
-    text-transform: uppercase;
-}
-
-/* TEKS UCAPAN */
-.six .wish h5 {
-    font-size: clamp(13px, 2.5vw, 18px);
-    font-weight: 300;
-
-    line-height: 1.6;
-    margin: 15px 0 0;
-    padding: 0 10px;
-}
-
-/* SMARTPHONE */
-@media screen and (max-width: 500px) {
-
-    .container > div.six {
-        padding: 6vh 5px 15px !important;
-    }
-
-    .six .hat {
-        width: 45px !important;
-        margin-bottom: 12px;
-    }
-
-    .six .photos {
-        width: 94%;
-        gap: 7px;
-    }
-
-    .six .profile-picture {
-        width: calc(33.333% - 5px);
-        max-width: none;
-    }
-
-    .six .wish {
-        margin-top: 25px !important;
-    }
-
-    .six .wish-hbd {
-        font-size: clamp(14px, 4.2vw, 22px) !important;
-    }
-}
-
-/* HP KECIL */
-@media screen and (max-width: 360px) {
-
-    .container > div.six {
-        padding-top: 5vh !important;
-    }
-
-    .six .hat {
-        width: 40px !important;
-    }
-
-    .six .photos {
-        gap: 5px;
-        width: 96%;
-    }
-
-    .six .wish-hbd {
-        font-size: 14px !important;
-    }
-}
-
