@@ -1,35 +1,53 @@
-
 // =========================================
 // HAPPY GRADUATION
-// RESPONSIVE ANIMATION - GSAP 3
+// FINAL ANIMATION - GSAP 3
 // =========================================
 
-// Memulai pengalaman setelah halaman selesai dimuat
 window.addEventListener("load", async () => {
 
+    const container = document.querySelector(".container");
     const audio = document.querySelector(".song");
 
-    const result = await Swal.fire({
-        title: "Do you want to play music in the background?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes",
-        cancelButtonText: "No",
-    });
-
-    // Putar musik jika pengguna menyetujui
-    if (result.isConfirmed && audio) {
-        try {
-            await audio.play();
-        } catch (error) {
-            console.log("Audio tidak dapat diputar:", error);
-        }
+    // Pastikan library tersedia
+    if (typeof gsap === "undefined") {
+        console.error("GSAP gagal dimuat.");
+        if (container) container.style.visibility = "visible";
+        return;
     }
 
-    // Jalankan animasi
+    // Jalankan animasi terlebih dahulu
     animationTimeline();
+
+    // Popup musik
+    if (typeof Swal !== "undefined" && audio) {
+
+        try {
+            const result = await Swal.fire({
+                title: "Do you want to play music in the background?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes",
+                cancelButtonText: "No"
+            });
+
+            if (result.isConfirmed) {
+                try {
+                    await audio.play();
+                } catch (error) {
+                    console.error("Musik gagal diputar:", error);
+                }
+            }
+
+        } catch (error) {
+            console.error("SweetAlert error:", error);
+        }
+
+    } else {
+        console.warn("SweetAlert atau audio tidak tersedia.");
+    }
+
 });
 
 
@@ -38,25 +56,29 @@ window.addEventListener("load", async () => {
 // =========================================
 
 function splitText(element) {
+
     if (!element || element.dataset.split === "true") return;
 
     const originalText = element.textContent;
+
     element.textContent = "";
 
     Array.from(originalText).forEach(char => {
+
         const span = document.createElement("span");
 
         span.textContent = char;
-
-        // Mempertahankan spasi sekaligus mengizinkan teks turun baris
         span.style.whiteSpace = "pre-wrap";
         span.style.display = "inline";
 
         element.appendChild(span);
+
     });
 
     element.dataset.split = "true";
+
 }
+
 
 // =========================================
 // ANIMATION TIMELINE
@@ -64,33 +86,37 @@ function splitText(element) {
 
 const animationTimeline = () => {
 
-    // Pastikan GSAP tersedia
     if (typeof gsap === "undefined") {
-        console.error("GSAP belum berhasil dimuat.");
+        console.error("GSAP belum tersedia.");
         document.querySelector(".container").style.visibility = "visible";
         return;
     }
 
-    // Elemen teks
     const textBox = document.querySelector(".hbd-chatbox");
     const hbd = document.querySelector(".wish-hbd");
 
-    // Pecah teks menjadi karakter
+    const container = document.querySelector(".container");
+
+    if (!container) {
+        console.error("Container tidak ditemukan.");
+        return;
+    }
+
+    // Pecah teks
     splitText(textBox);
     splitText(hbd);
 
-    // Deteksi ukuran layar
+    // Deteksi layar
     const isMobile = window.matchMedia("(max-width: 500px)").matches;
 
-    // Penyesuaian animasi berdasarkan layar
-   const photoScale = isMobile ? 1.3 : 2.5;
+    const photoScale = isMobile ? 1.3 : 2.5;
 
     const screenHeight = window.innerHeight;
 
     const balloonStart = screenHeight + 500;
     const balloonEnd = -(screenHeight + 500);
 
-    // Transisi teks
+    // Pengaturan transisi teks
     const ideaTextTrans = {
         opacity: 0,
         y: -20,
@@ -105,14 +131,28 @@ const animationTimeline = () => {
         skewX: "-15deg"
     };
 
+    // Timeline
+    const tl = gsap.timeline({
+        paused: true,
+        onStart: () => {
+            gsap.set(".container", {
+                visibility: "visible"
+            });
+        }
+    });
+
+    // Pastikan foto tersembunyi
+    gsap.set(".six", {
+        autoAlpha: 0
+    });
+
+    gsap.set(".eight svg", {
+        visibility: "hidden"
+    });
 
     // =====================================
-    // TIMELINE GSAP 3
-    // =====================================
-
-    const tl = gsap.timeline();
-
     // BAGIAN 1 - PEMBUKAAN
+    // =====================================
 
     tl.to(".container", {
         duration: 0.6,
@@ -144,7 +184,9 @@ const animationTimeline = () => {
     }, "-=1")
 
 
+    // =====================================
     // BAGIAN 2 - UCAPAN
+    // =====================================
 
     .from(".three", {
         duration: 0.7,
@@ -189,7 +231,9 @@ const animationTimeline = () => {
     }, "+=1")
 
 
+    // =====================================
     // BAGIAN 3 - PESAN SPESIAL
+    // =====================================
 
     .from(".idea-1", {
         duration: 0.7,
@@ -240,7 +284,9 @@ const animationTimeline = () => {
     }, "+=2.5")
 
 
+    // =====================================
     // BAGIAN 4 - YOU ARE SPECIAL
+    // =====================================
 
     .from(".idea-5", {
         duration: 0.7,
@@ -265,7 +311,9 @@ const animationTimeline = () => {
     }, "+=2")
 
 
+    // =====================================
     // BAGIAN 5 - ANIMASI SO
+    // =====================================
 
     .from(".idea-6 span", {
         duration: 0.8,
@@ -286,7 +334,9 @@ const animationTimeline = () => {
     }, "+=1.5")
 
 
+    // =====================================
     // BAGIAN 6 - BALON TERBANG
+    // =====================================
 
     .fromTo(".baloons img", {
         opacity: 0.9,
@@ -300,7 +350,14 @@ const animationTimeline = () => {
     })
 
 
+    // =====================================
     // BAGIAN 7 - FOTO WISUDA
+    // =====================================
+
+    .to(".six", {
+        duration: 0.6,
+        autoAlpha: 1
+    })
 
     .from(".profile-picture", {
         duration: 0.5,
@@ -310,7 +367,7 @@ const animationTimeline = () => {
         y: -25,
         rotationZ: -45,
         stagger: 0.15
-    }, "-=2")
+    })
 
     .from(".hat", {
         duration: 0.5,
@@ -321,7 +378,9 @@ const animationTimeline = () => {
     })
 
 
-    // BAGIAN 8 - UCAPAN SELAMAT WISUDA
+    // =====================================
+    // BAGIAN 8 - UCAPAN WISUDA
+    // =====================================
 
     .addLabel("party")
 
@@ -355,7 +414,9 @@ const animationTimeline = () => {
     }, "party")
 
 
-    // BAGIAN 9 - ANIMASI LINGKARAN
+    // =====================================
+    // BAGIAN 9 - LINGKARAN
+    // =====================================
 
     .to(".eight svg", {
         duration: 1.5,
@@ -368,11 +429,13 @@ const animationTimeline = () => {
     })
 
 
+    // =====================================
     // BAGIAN 10 - PENUTUP
+    // =====================================
 
     .to(".six", {
         duration: 0.5,
-        opacity: 0,
+        autoAlpha: 0,
         y: 30,
         zIndex: -1
     })
@@ -393,14 +456,20 @@ const animationTimeline = () => {
     // TOMBOL REPLAY
     // =====================================
 
-    const replyBtn = document.getElementById("replay");
+    const replayButton = document.getElementById("replay");
 
-    if (replyBtn) {
+    if (replayButton) {
 
-        replyBtn.addEventListener("click", () => {
+        replayButton.addEventListener("click", () => {
+
+            // Reset posisi seluruh animasi
             tl.restart();
+
         });
 
     }
+
+    // Mulai animasi setelah timeline siap
+    tl.play();
 
 };
