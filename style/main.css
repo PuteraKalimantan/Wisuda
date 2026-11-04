@@ -625,3 +625,157 @@ body {
         font-size: 0.9rem;
     }
 }
+
+/* =========================================
+   PERBAIKAN TEKS UCAPAN
+========================================= */
+
+.four .text-box {
+    box-sizing: border-box;
+    width: min(600px, 90%);
+    max-width: 100%;
+}
+
+.hbd-chatbox {
+    white-space: pre-wrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-align: left;
+    line-height: 1.7;
+    letter-spacing: normal;
+}
+
+.hbd-chatbox span {
+    white-space: pre-wrap;
+    display: inline;
+}
+
+
+/* =========================================
+   PERBAIKAN AREA FOTO WISUDA
+========================================= */
+
+.container > div.six {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    box-sizing: border-box;
+
+    /* Warna latar lavender */
+    background-color: #d9cff2;
+
+    /* Memberikan ruang untuk topi dan foto */
+    padding-top: 30vh;
+}
+
+
+/* =========================================
+   FOTO RESPONSIVE
+========================================= */
+
+.six .profile-picture {
+    display: inline-block;
+    width: 30%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    vertical-align: top;
+}
+
+.six .hat {
+    left: 50%;
+    top: 12vh;
+    transform: translateX(-50%);
+    width: 65px;
+}
+
+
+/* =========================================
+   TAMPILAN SMARTPHONE
+========================================= */
+
+@media screen and (max-width: 500px) {
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+    }
+
+    .four .text-box {
+        width: 90%;
+        padding: 14px;
+    }
+
+    .hbd-chatbox {
+        font-size: 1rem;
+        line-height: 1.8;
+        text-align: left;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .text-box .fake-btn {
+        bottom: -45px;
+        right: 5px;
+    }
+
+    .container > div.six {
+        top: 0;
+        padding-top: 30vh;
+        min-height: 100vh;
+        min-height: 100svh;
+    }
+
+    .six .profile-picture {
+        width: 30%;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+    }
+
+    .six .hat {
+        width: 55px;
+        left: 50%;
+        top: 12vh;
+    }
+
+    .wish-hbd {
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+        line-height: 1.3;
+    }
+
+    .wish h5 {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+        line-height: 1.6;
+        padding: 0 12px;
+    }
+}
+
+
+/* =========================================
+   SMARTPHONE LAYAR KECIL
+========================================= */
+
+@media screen and (max-width: 360px) {
+
+    .hbd-chatbox {
+        font-size: 0.9rem;
+    }
+
+    .six .profile-picture {
+        width: 29%;
+    }
+
+    .wish-hbd {
+        font-size: 1.5rem;
+    }
+
+    .wish h5 {
+        font-size: 1rem;
+    }
+}
