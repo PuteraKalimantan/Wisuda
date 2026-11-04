@@ -98,7 +98,7 @@ function splitText(element) {
 
     if (!element || element.dataset.split === "true") return;
 
-    const originalText = element.textContent;
+    const originalText = element.textContent.trim();
 
     element.textContent = "";
 
