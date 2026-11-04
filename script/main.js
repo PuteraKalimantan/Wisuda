@@ -38,26 +38,25 @@ window.addEventListener("load", async () => {
 // =========================================
 
 function splitText(element) {
-
     if (!element || element.dataset.split === "true") return;
 
     const originalText = element.textContent;
     element.textContent = "";
 
     Array.from(originalText).forEach(char => {
-
         const span = document.createElement("span");
 
         span.textContent = char;
-        span.style.whiteSpace = "pre";
+
+        // Mempertahankan spasi sekaligus mengizinkan teks turun baris
+        span.style.whiteSpace = "pre-wrap";
+        span.style.display = "inline";
 
         element.appendChild(span);
-
     });
 
     element.dataset.split = "true";
 }
-
 
 // =========================================
 // ANIMATION TIMELINE
@@ -84,7 +83,7 @@ const animationTimeline = () => {
     const isMobile = window.matchMedia("(max-width: 500px)").matches;
 
     // Penyesuaian animasi berdasarkan layar
-    const photoScale = isMobile ? 1.8 : 3.5;
+   const photoScale = isMobile ? 1.3 : 2.5;
 
     const screenHeight = window.innerHeight;
 
